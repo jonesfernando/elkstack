@@ -38,8 +38,8 @@ daemonset:
       filebeat.inputs:
       - type: container
         paths:
-          - /var/log/containers/*.log
-        include_lines: ['WARN','ERROR']
+          - /var/log/containers/helloworld*.log
+        include_lines: ['request']
         processors:
         - add_kubernetes_metadata:
             host: ${NODE_NAME}
